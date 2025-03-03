@@ -44,11 +44,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     JP_GRV     , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,   KC_DEL,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , KC_0   , JP_EQL ,
     KC_TAB     , JP_QUOT, JP_COMM, JP_DOT , KC_P   , KC_Y   ,  CH_MOVE,    CH_MOUSE, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , JP_SLSH,
     CH_EN      , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , JP_MINS,
-    xxxx       , JP_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,    KC_BSPC,       KC_ENT,   KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , JP_BSLS,
-    MO(_FUNC)  , KC_LGUI, KC_LALT, xxxx   ,    xxxx,                                     xxxx     , CH_JP   , JP_LBRC, JP_RBRC, xxxx   ,
+    xxxx       , JP_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,    KC_BSPC,    KC_ENT, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , JP_BSLS,
+    MO(_FUNC)  , KC_LGUI, KC_LALT, xxxx   ,    xxxx,                                     xxxx     , CH_JP  , JP_LBRC, JP_RBRC, xxxx   ,
                                                         xxxx,     xxxx,   S(KC_F10), KC_ESC,
-                                                                  xxxx,        xxxx,
-                                    MO(_SHIFT),CTL_T(KC_SPC),   KC_DEL,      xxxx, CTL_T(KC_SPC), MO(_SHIFT)
+                                                                  xxxx,      KC_PGUP,
+                                    MO(_SHIFT),CTL_T(KC_SPC),   KC_DEL,      KC_PGDN, CTL_T(KC_SPC), MO(_SHIFT)
   ),
  /* Keymap: Nicola layer    
  *
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_NICOLA] = LAYOUT_ergodox_pretty(
     xxxx ,  NG_1 ,   NG_2,   NG_3,   NG_4,   NG_5,  xxxx ,      xxxx ,  NG_6 ,   NG_7,   NG_8,   NG_9,   NG_0,  xxxx ,
     x__x ,  NG_Q ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_P,  xxxx ,
-    xxxx ,  NG_A,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,NG_SCLN,  xxxx ,
+    x__x ,  NG_A,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,NG_SCLN,  xxxx ,
     xxxx ,  NG_Z,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SLSH,  xxxx ,
     x__x ,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
@@ -168,7 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_SHIFT] = LAYOUT_ergodox_pretty(
     // left hand
     JP_TILD     , JP_EXLM, JP_AT     , JP_HASH, JP_DLR , JP_PERC, x__x,     x__x   , JP_CIRC, JP_AMPR, JP_ASTR, JP_LPRN, JP_RPRN, JP_PLUS ,
-    x__x        , JP_DQUO, JP_LABK   , JP_RABK, S(KC_P), S(KC_Y), x__x,     KC_BSPC, S(KC_F), S(KC_G), S(KC_C), S(KC_R), S(KC_L), JP_QUES,
+    x__x        , JP_DQUO, JP_LABK   , JP_RABK, S(KC_P), S(KC_Y), x__x,     x__x,    S(KC_F), S(KC_G), S(KC_C), S(KC_R), S(KC_L), JP_QUES,
     x__x        , S(KC_A), S(KC_O)   , S(KC_E), S(KC_U), S(KC_I),                    S(KC_D), S(KC_H), S(KC_T), S(KC_N), S(KC_S), JP_UNDS,
     x__x        , JP_COLN, S(KC_Q)   , S(KC_J), S(KC_K), S(KC_X), x__x,   S(KC_ENT), S(KC_B), S(KC_M), S(KC_W), S(KC_V), S(KC_Z), JP_PIPE,
     S(KC_LCTL)  , x__x   , S(KC_LALT), x__x   , x__x   ,                                    S(KC_ENT), x__x   , JP_LCBR, JP_RCBR,  x__x   ,
