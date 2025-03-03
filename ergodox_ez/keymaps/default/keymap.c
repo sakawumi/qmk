@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |右クリ|  esc |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |      |       |      |        |      |
- *                                 | shift| ctrl |------|       |------|        | shift|
- *                                 |      |  SP  | del  |       |      |        |      |
+ *                                 |      |      |      |       | PGUP |        |      |
+ *                                 | shift| ctrl |------|       |------|  ctrl  | shift|
+ *                                 |      |  SP  | del  |       | PGDW |   SP   |      |
  *                                 `--------------------'       `----------------------'
  */
  [_DVO] = LAYOUT_ergodox_pretty(
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,KC_HOME,  xxxx ,  KC_UP,  xxxx , KC_PGUP,  xxxx ,
     x__x ,  KC_A ,  KC_S ,  xxxx ,  xxxx ,  xxxx ,                     KC_END,KC_LEFT,KC_DOWN,KC_RIGHT,KC_PGDN,  xxxx ,
   KC_LSFT,  KC_Z ,  KC_X ,  KC_C ,  KC_V ,  xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
+  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  xxxx ,  xxxx ,  xxxx ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
                                     x__x ,  x__x ,  x__x ,      x__x ,  x__x , x__x
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  xxxx, KC_BTN3,KC_MS_U,  xxxx , xxxx,  xxxx ,
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,                     xxxx,  KC_MS_L,KC_MS_D, KC_MS_R,xxxx,  xxxx ,
   KC_LSFT,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
+  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  xxxx ,  xxxx ,  xxxx ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
                                     x__x ,  x__x ,  x__x ,      x__x ,  KC_BTN2 , KC_BTN1
@@ -202,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  KC_F13, KC_F14, KC_F15,KC_F16, KC_F17,  KC_F18,
     xxxx ,C(KC_A),C(KC_S),  xxxx ,C(KC_F),  xxxx ,                      KC_F19, KC_F20, KC_F21,KC_F22, KC_F23,  KC_F24,
     KC_LSFT ,C(KC_Z),C(KC_X),C(KC_C),C(KC_V), xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-    xxxx ,  xxxx ,  x__x ,  xxxx ,  xxxx ,                                   C(KC_ENT) ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
+    xxxx ,  xxxx ,  x__x ,  xxxx ,  xxxx ,                                   C(KC_ENT) ,  x__x ,  xxxx ,  xxxx ,  xxxx ,
                                                x__x ,x__x,      x__x ,  x__x,
                                                      x__x,      x__x ,
                                     x__x ,  x__x,    x__x,      x__x , x__x, x__x
