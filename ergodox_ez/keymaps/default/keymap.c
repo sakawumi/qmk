@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     S(KC_LCTL)  , x__x   , S(KC_LALT), S(KC_LEFT),S(KC_RIGHT),                             S(KC_DOWN), x__x   , JP_LCBR, JP_RCBR,  S(KC_UP),
                                                      x__x   , S(KC_HOME),     x__x   , x__x   ,
                                                               S(KC_END),   S(KC_PGUP),
-                                            x__x   , x__x   , x__x   ,     S(KC_PGDW), x__x, x__x
+                                            x__x   , x__x   , x__x   ,     S(KC_PGDN), x__x, x__x
   ),
  /* Keymap: Function layer
  *
