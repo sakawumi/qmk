@@ -12,7 +12,7 @@ enum layers
     _NICOLA,
     _MOVE,
     _MOUSE,
-    _SHIFT,
+    // _SHIFT,
     _FUNC,
 };
 
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | FUNC | win  | ALT  |  ←  |  →  |                                       |  ↓  | かな |   [  |   ]  |   ↑  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |      | HOME |       |右クリ|  esc |
+ *                                        | MEH  | HOME |       |右クリ|  esc |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | END  |       | PGUP |        |      |
  *                                 | shift| ctrl |------|       |------|  ctrl  | shift|
@@ -41,14 +41,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  [_DVO] = LAYOUT_ergodox_pretty(
     // left hand
-    JP_GRV     , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,     xxxx,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , KC_0   , JP_EQL ,
-    KC_TAB     , JP_QUOT, JP_COMM, JP_DOT , KC_P   , KC_Y   ,  CH_MOVE,    CH_MOUSE, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , JP_SLSH,
-    CH_EN      , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , JP_MINS,
-    MO(_SHIFT) , JP_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,    KC_BSPC,    KC_ENT, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , JP_BSLS,
-    MO(_FUNC)  , KC_LGUI, KC_LALT, KC_LEFT,KC_RIGHT,                                 KC_DOWN, CH_JP  , JP_LBRC, JP_RBRC, KC_UP  ,
-                                                         xxxx, KC_HOME,    S(KC_F10), KC_ESC,
+    KC_GRV     , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,     xxxx,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , KC_0   , KC_EQL ,
+    KC_TAB     , KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y   ,  CH_MOVE,    CH_MOUSE, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , KC_SLSH,
+    CH_EN      , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , KC_MINS,
+    KC_LSFT    , KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,    KC_BSPC,    KC_ENT, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , KC_BSLS,
+    MO(_FUNC)  , KC_LGUI, KC_LALT, KC_LEFT,KC_RIGHT,                                 KC_DOWN, CH_JP  , KC_LBRC, KC_RBRC, KC_UP  ,
+                                                        KC_MEH, KC_HOME,    S(KC_F10), KC_ESC,
                                                                 KC_END,      KC_PGUP,
-                                    MO(_SHIFT),CTL_T(KC_SPC),   KC_DEL,      KC_PGDN, CTL_T(KC_SPC), MO(_SHIFT)
+                                    SFT_T(KC_SPC),CTL_T(KC_SPC), KC_DEL,     KC_PGDN, CTL_T(KC_SPC), SFT_T(KC_ENT)
   ),
  /* Keymap: Nicola layer    
  *
@@ -165,17 +165,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |        |      |
  *                                 `--------------------'       `----------------------'
  */
- [_SHIFT] = LAYOUT_ergodox_pretty(
-    // left hand
-    JP_TILD     , JP_EXLM, JP_AT     , JP_HASH, JP_DLR , JP_PERC, x__x,     x__x   , JP_CIRC, JP_AMPR, JP_ASTR, JP_LPRN, JP_RPRN, JP_PLUS ,
-    S(KC_TAB)   , JP_DQUO, JP_LABK   , JP_RABK, S(KC_P), S(KC_Y), x__x,     x__x,    S(KC_F), S(KC_G), S(KC_C), S(KC_R), S(KC_L), JP_QUES,
-    x__x        , S(KC_A), S(KC_O)   , S(KC_E), S(KC_U), S(KC_I),                    S(KC_D), S(KC_H), S(KC_T), S(KC_N), S(KC_S), JP_UNDS,
-    x__x        , JP_COLN, S(KC_Q)   , S(KC_J), S(KC_K), S(KC_X), x__x,   S(KC_ENT), S(KC_B), S(KC_M), S(KC_W), S(KC_V), S(KC_Z), JP_PIPE,
-    S(KC_LCTL)  , x__x   , S(KC_LALT), S(KC_LEFT),S(KC_RIGHT),                             S(KC_DOWN), x__x   , JP_LCBR, JP_RCBR,  S(KC_UP),
-                                                     x__x   , S(KC_HOME),     x__x   , x__x   ,
-                                                              S(KC_END),   S(KC_PGUP),
-                                            x__x   , x__x   , x__x   ,     S(KC_PGDN), x__x, x__x
-  ),
+//  [_SHIFT] = LAYOUT_ergodox_pretty(
+//     // left hand
+//     KC_TILD     , KC_EXLM, KC_AT     , KC_HASH, KC_DLR , KC_PERC, x__x,     x__x   , KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS ,
+//     S(KC_TAB)   , KC_DQUO, KC_LABK   , KC_RABK, S(KC_P), S(KC_Y), x__x,     x__x,    S(KC_F), S(KC_G), S(KC_C), S(KC_R), S(KC_L), KC_QUES,
+//     x__x        , S(KC_A), S(KC_O)   , S(KC_E), S(KC_U), S(KC_I),                    S(KC_D), S(KC_H), S(KC_T), S(KC_N), S(KC_S), KC_UNDS,
+//     x__x        , KC_COLN, S(KC_Q)   , S(KC_J), S(KC_K), S(KC_X), x__x,   S(KC_ENT), S(KC_B), S(KC_M), S(KC_W), S(KC_V), S(KC_Z), KC_PIPE,
+//     S(KC_LCTL)  , x__x   , S(KC_LALT), S(KC_LEFT),S(KC_RIGHT),                             S(KC_DOWN), x__x   , KC_LCBR, KC_RCBR,  S(KC_UP),
+//                                                      x__x   , S(KC_HOME),     x__x   , x__x   ,
+//                                                               S(KC_END),   S(KC_PGUP),
+//                                             x__x   , x__x   , x__x   ,     S(KC_PGDN), x__x, x__x
+//   ),
  /* Keymap: Function layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.

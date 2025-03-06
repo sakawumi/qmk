@@ -69,7 +69,7 @@ void nicola_on(void) {
   layer_on(nicola_layer);
 
   // tap_code(KC_LANG1); // Mac
-  tap_code(JP_HENK);
+  tap_code(KC_F24);
 }
 
 void nicola_off(void) {
@@ -78,7 +78,7 @@ void nicola_off(void) {
   layer_off(nicola_layer);
 
   // tap_code(KC_LANG2); // Mac
-  tap_code(JP_MHEN);
+  tap_code(KC_F23);
 }
 
 // 親指シフトの状態
@@ -173,9 +173,13 @@ void nicola_m_type(void) {
 }
 
 void nicola_o_type(void) {
-    if(nicola_o_key != 0) {
-        //send_string(" ");
-    }
+  switch(nicola_o_key){
+    case NG_SHFTL: send_string(" "); break;
+    case NG_SHFTR: send_string("\n");break;
+  }
+    // if(nicola_o_key != 0) {
+    //     send_string(" ");
+    // }
 }
 
 void nicola_om_type(void) {
