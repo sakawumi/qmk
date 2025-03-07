@@ -16,6 +16,10 @@ enum layers
     _FUNC,
 };
 
+enum custom_keycodes {
+    EPRM = SAFE_RANGE,
+    SP_EQU
+  }; 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap: Basic Dvorak layer
@@ -24,31 +28,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  `     |   1  |   2  |   3  |   4  |   5  |      |           | scrn |   6  |   7  |   8  |   9  |   0  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   '  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   L  |   /    |
- * |--------+------+------+------+------+------| 移動 |           |マウス|------+------+------+------+------+--------|
- * | 英字   |   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
- * |--------+------+------+------+------+------|  BS  |           | enter|------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| 英字 |           |かな  |------+------+------+------+------+--------|
+ * |  " = " |   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
+ * |--------+------+------+------+------+------|  [   |           |  ]   |------+------+------+------+------+--------|
  * |  shift |   ;  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   Z  |   \    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | FUNC | win  | ALT  |  ←  |  →  |                                       |  ↓  | かな |   [  |   ]  |   ↑  |
+ *   | FUNC | win  | ALT  |マウス| 移動 |                                       |  ←  |  ↓  |  ↑  |  →  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | MEH  | HOME |       |右クリ|  esc |
+ *                                        | MEH  | del  |       |右クリ|  esc |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | END  |       | PGUP |        |      |
+ *                                 |      |      | HOME |       | PGUP |        |      |
  *                                 | shift| ctrl |------|       |------|  ctrl  | shift|
- *                                 |      |  SP  | del  |       | PGDW |   SP   |      |
+ *                                 | space|  BS  | END  |       | PGDW |  space | enter|
  *                                 `--------------------'       `----------------------'
  */
  [_DVO] = LAYOUT_ergodox_pretty(
     // left hand
     KC_GRV     , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,     xxxx,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , KC_0   , KC_EQL ,
-    KC_TAB     , KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y   ,  CH_MOVE,    CH_MOUSE, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , KC_SLSH,
-    CH_EN      , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , KC_MINS,
-    KC_LSFT    , KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,    KC_BSPC,    KC_ENT, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , KC_BSLS,
-    MO(_FUNC)  , KC_LGUI, KC_LALT, KC_LEFT,KC_RIGHT,                                 KC_DOWN, CH_JP  , KC_LBRC, KC_RBRC, KC_UP  ,
-                                                        KC_MEH, KC_HOME,    S(KC_F10), KC_ESC,
-                                                                KC_END,      KC_PGUP,
-                                    SFT_T(KC_SPC),CTL_T(KC_SPC), KC_DEL,     KC_PGDN, CTL_T(KC_SPC), SFT_T(KC_ENT)
+    KC_TAB     , KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y   ,    CH_EN,       CH_JP, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , KC_SLSH,
+    SP_EQU     , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , KC_MINS,
+    KC_LSFT    , KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,   KC_LBRC,    KC_RBRC, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , KC_BSLS,
+    MO(_FUNC)  , KC_LGUI, KC_LALT, CH_MOUSE,CH_MOVE,                              KC_LEFT, KC_DOWN, KC_UP  , KC_RIGHT, xxxx  ,
+                                                         KC_MEH, KC_DEL,   S(KC_F10), KC_ESC,
+                                                                KC_HOME,     KC_PGUP,
+                                   SFT_T(KC_SPC),CTL_T(KC_BSPC), KC_END,     KC_PGDN, CTL_T(KC_SPC), SFT_T(KC_ENT)
   ),
  /* Keymap: Nicola layer    
  *
@@ -75,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     xxxx ,  NG_1 ,   NG_2,   NG_3,   NG_4,   NG_5,  x__x ,      x__x ,  NG_6 ,   NG_7,   NG_8,   NG_9,   NG_0,  x__x ,
     x__x ,  NG_Q ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_P,  x__x ,
     x__x ,  NG_A,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,NG_SCLN,  x__x ,
-    xxxx ,  NG_Z,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SLSH,  x__x ,
+    x__x ,  NG_Z,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SLSH,  x__x ,
     x__x ,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
@@ -107,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,KC_HOME,  xxxx ,  KC_UP,  xxxx ,  xxxx,  xxxx ,
     x__x ,  KC_A ,  KC_S ,  xxxx ,  xxxx ,  xxxx ,                     KC_END,KC_LEFT,KC_DOWN,KC_RIGHT, xxxx,  xxxx ,
   KC_LSFT,  KC_Z ,  KC_X ,  KC_C ,  KC_V ,  xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  xxxx ,  xxxx ,  xxxx ,
+  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
                                     x__x ,  x__x ,  x__x ,      x__x ,  x__x , x__x
@@ -139,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  xxxx, KC_BTN3,KC_MS_U,  xxxx , xxxx,  xxxx ,
     x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,                     xxxx,  KC_MS_L,KC_MS_D, KC_MS_R,xxxx,  xxxx ,
   KC_LSFT,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  xxxx ,  xxxx ,  xxxx ,
+  KC_LCTL,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
                                     x__x ,  x__x ,  x__x ,      x__x ,  KC_BTN2 , KC_BTN1
@@ -202,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  x__x ,      x__x ,  KC_F13, KC_F14, KC_F15,KC_F16, KC_F17,  KC_F18,
     xxxx ,C(KC_A),C(KC_S),  xxxx ,C(KC_F),  xxxx ,                      KC_F19, KC_F20, KC_F21,KC_F22, KC_F23,  KC_F24,
     KC_LSFT ,C(KC_Z),C(KC_X),C(KC_C),C(KC_V), xxxx ,  x__x ,      x__x ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,  xxxx ,
-    xxxx ,  xxxx ,  x__x ,  x__x ,  x__x ,                                         x__x ,  x__x ,  xxxx ,  xxxx ,  x__x ,
+    xxxx ,  xxxx ,  x__x ,  x__x ,  x__x ,                                         x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
                                                x__x ,x__x,      x__x ,  x__x,
                                                      x__x,      x__x ,
                                     x__x ,  x__x,    x__x,      x__x , x__x, x__x
@@ -272,6 +276,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
                 return false;
             case CH_MOUSE:
                 layer_on(_MOUSE);
+                return false;
+            case SP_EQU:
+                send_string(" = ");
                 return false;
             }
         }
