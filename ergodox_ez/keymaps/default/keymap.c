@@ -25,15 +25,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap: Basic Dvorak layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |  `     |   1  |   2  |   3  |   4  |   5  |      |           | scrn |   6  |   7  |   8  |   9  |   0  |   =    |
+ * |  `     | enter|   2  |   3  |   4  |   5  |      |           | scrn |   6  |   7  |   8  |   9  | mouse|  move  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   '  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   L  |   /    |
+ * | Tab    |   1  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   0  |   =    |
  * |--------+------+------+------+------+------| 英字 |           |かな  |------+------+------+------+------+--------|
- * |  " = " |   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
+ * |  " = " |   '  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   L  |   /    |
  * |--------+------+------+------+------+------|  [   |           |  ]   |------+------+------+------+------+--------|
- * |  shift |   ;  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   Z  |   \    |
+ * |  shift |   A  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   S  |   -    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | FUNC | win  | ALT  |マウス| 移動 |                                       |  ←  |  ↓  |  ↑  |  →  |      |
+ *   | FUNC | win ;| ALT  |  ↓  |  ↑  |                                       |  ←  |  →  | win  |  Z   |   \  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | MEH  | del  |       |右クリ|  esc |
@@ -45,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  [_DVO] = LAYOUT_ergodox_pretty(
     // left hand
-    KC_GRV     , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,     xxxx,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , KC_0   , KC_EQL ,
-    KC_TAB     , KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y   ,    CH_EN,       CH_JP, KC_F, KC_G   , KC_C   , KC_R   , KC_L   , KC_SLSH,
-    SP_EQU     , KC_A   , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_S   , KC_MINS,
-    KC_LSFT    , KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X   ,   KC_LBRC,    KC_RBRC, KC_B, KC_M   , KC_W   , KC_V   , KC_Z   , KC_BSLS,
-    MO(_FUNC)  , KC_LGUI, KC_LALT, CH_MOUSE,CH_MOVE,                              KC_LEFT, KC_DOWN, KC_UP  , KC_RIGHT, xxxx  ,
+    KC_GRV     , KC_ENT       , KC_2   , KC_3   , KC_4   , KC_5   ,     xxxx,     KC_PSCR, KC_6, KC_7   , KC_8   , KC_9   , CH_MOUSE, CH_MOVE ,
+    KC_TAB     , KC_1         , KC_COMM, KC_DOT , KC_P   , KC_Y   ,    CH_EN,       CH_JP, KC_F, KC_G   , KC_C   , KC_R   , KC_0   , KC_EQL,
+    SP_EQU     , KC_QUOT      , KC_O   , KC_E   , KC_U   , KC_I   ,                        KC_D, KC_H   , KC_T   , KC_N   , KC_L   , KC_SLSH,
+    KC_LSFT    , KC_A         , KC_Q   , KC_J   , KC_K   , KC_X   ,   KC_LBRC,    KC_RBRC, KC_B, KC_M   , KC_W   , KC_V   , KC_S   , KC_MINS,
+    MO(_FUNC)  , LGUI_T(KC_SCLN),KC_LALT,KC_DOWN,KC_UP,                                       KC_LEFT, KC_RIGHT, KC_LGUI  , KC_Z, KC_BSLS  ,
                                                          KC_MEH, KC_DEL,   S(KC_F10), KC_ESC,
                                                                 KC_HOME,     KC_PGUP,
                                    SFT_T(KC_SPC),CTL_T(KC_BSPC), KC_END,     KC_PGDN, CTL_T(KC_SPC), SFT_T(KC_ENT)
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
  [_NICOLA] = LAYOUT_ergodox_pretty(
-    xxxx ,  NG_1 ,   NG_2,   NG_3,   NG_4,   NG_5,  x__x ,      x__x ,  NG_6 ,   NG_7,   NG_8,   NG_9,   NG_0,  x__x ,
-    x__x ,  NG_Q ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_P,  x__x ,
-    x__x ,  NG_A,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,NG_SCLN,  x__x ,
-    x__x ,  NG_Z,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SLSH,  x__x ,
-    x__x ,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
+    xxxx ,  xxxx ,   NG_2,   NG_3,   NG_4,   NG_5,  x__x ,      x__x ,  NG_6 ,   NG_7,   NG_8,   NG_9,   x__x,  x__x ,
+    x__x ,  NG_1 ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_0,  x__x ,
+    x__x ,  NG_Q,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,   NG_P,  x__x ,
+    x__x ,  NG_A,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SCLN,  x__x ,
+    x__x ,  NG_Z ,  x__x ,  x__x ,  x__x ,                             x__x ,  x__x ,   x__x ,NG_SLSH ,  x__x ,
                                             x__x ,  x__x ,      x__x ,  x__x ,
                                                     x__x ,      x__x ,
                                     NG_SHFTL,x__x,  x__x ,      x__x ,   x__x, NG_SHFTR
@@ -277,13 +277,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             case CH_MOUSE:
                 layer_on(_MOUSE);
                 return false;
-            case SP_EQU:
-                send_string(" = ");
-                return false;
             }
+        } else if (keycode == SP_EQU){
+            send_string(" = ");
         }
     }
-
+    
     // NICOLA親指シフトaoeaoeu
     bool a = true;
     if (nicola_state())

@@ -115,5 +115,4 @@ typedef enum nicola_keycodes {
   CH_MOVE,
   CH_MOUSE,
   CH_LAYER_END
-
 } NGKEYS;
