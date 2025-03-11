@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
  [_NICOLA] = LAYOUT_ergodox_pretty(
     xxxx ,  NG_1 ,   NG_2,   NG_3,   NG_4,   NG_5,  x__x ,      x__x ,  NG_6 ,   NG_7,   NG_8,   NG_9,   NG_0,  x__x ,
-    x__x ,  NG_Q ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_P,  x__x ,
+    x__x ,  NG_Q ,   NG_W,   NG_E,   NG_R,   NG_T,  x__x ,      x__x ,  NG_Y ,   NG_U,   NG_I,   NG_O,   NG_P,  NG_SLSH ,
     x__x ,  NG_A,    NG_S,   NG_D,   NG_F,   NG_G,                      NG_H ,   NG_J,   NG_K,   NG_L,NG_SCLN,  x__x ,
     x__x ,  NG_Z,    NG_X,   NG_C,   NG_V,   NG_B,  x__x ,      x__x ,  NG_N,    NG_M,NG_COMM, NG_DOT,NG_SLSH,  x__x ,
     x__x ,  x__x ,  x__x ,  x__x ,  x__x ,                                      x__x ,  x__x ,  x__x ,  x__x ,  x__x ,
@@ -278,8 +278,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
                 layer_on(_MOUSE);
                 return false;
             }
-        } else if (keycode == SP_EQU){
-            send_string(" = ");
         }
     }
     
