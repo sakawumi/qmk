@@ -109,7 +109,8 @@ typedef enum nicola_keycodes
   JIS2US_0,
   JIS2US_SCLN,
   JIS2US_BOTTOM,
+  CH_LAYER,
   CH_JP,
-  CH_EN
-
+  CH_EN,
+  CH_LAYER_END
 } NGKEYS;

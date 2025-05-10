@@ -157,7 +157,7 @@ void nicola_m_type(void) {
         case NG_K   : send_string("ki"); break;
         case NG_L   : send_string("i" ); break;
         case NG_SCLN: send_string("nn"); break;
-        case NG_QUOT: send_string(SS_TAP(X_BSPACE)); break;
+        //case NG_QUOT: send_string(SS_TAP(X_BSPACE)); break;
 
         case NG_Z   : send_string("." ); break;
         case NG_X   : send_string("hi"); break;
@@ -177,15 +177,12 @@ void nicola_o_type(void) {
     case NG_SHFTL: send_string(" "); break;
     case NG_SHFTR: send_string("\n");break;
   }
-    // if(nicola_o_key != 0) {
-    //     send_string(" ");
-    // }
 }
 
 void nicola_om_type(void) {
     if(nicola_o_key == NG_SHFTL) {
         switch(nicola_m_key) {
-            case NG_1   : send_string("?" ); break;
+            case NG_1   : send_string("!" ); break;
             case NG_2   :                    break;
             case NG_3   : send_string("+" ); break;
             case NG_4   : send_string("]");  break;
@@ -219,7 +216,7 @@ void nicola_om_type(void) {
             case NG_K   : send_string("gi"); break;
             case NG_L   : send_string("po"); break;
             case NG_SCLN:                    break;
-            case NG_QUOT: send_string(SS_TAP(X_BSPACE)); break;
+            //case NG_QUOT: send_string(SS_TAP(X_BSPACE)); break;
 
             case NG_Z   : send_string("lu"); break;
             case NG_X   : send_string("-" ); break;
@@ -234,7 +231,7 @@ void nicola_om_type(void) {
         }
     } else if(nicola_o_key == NG_SHFTR) {
         switch(nicola_m_key) {
-            case NG_1   : send_string("?" ); break;
+            case NG_1   : send_string("!" ); break;
             case NG_2   :                    break;
             case NG_3   : send_string("+" ); break;
             case NG_4   : send_string("]");  break;
