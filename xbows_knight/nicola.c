@@ -183,15 +183,15 @@ void nicola_om_type(void) {
     if(nicola_o_key == NG_SHFTL) {
         switch(nicola_m_key) {
             case NG_1   : send_string("!" ); break;
-            case NG_2   :                    break;
-            case NG_3   : send_string("+" ); break;
-            case NG_4   : send_string("]");  break;
-            case NG_5   : send_string("\\"); break;
-            case NG_6   :                    break;
-            case NG_7   :                    break;
-            case NG_8   :                    break;
-            case NG_9   :                    break;
-            case NG_0   :                    break;
+            case NG_2   : send_string("@" ); break;
+            case NG_3   : send_string("#" ); break;
+            case NG_4   : send_string("$");  break;
+            case NG_5   : send_string("%");  break;
+            case NG_6   : send_string("^");  break;
+            case NG_7   : send_string("&");  break;
+            case NG_8   : send_string("*");  break;
+            case NG_9   : send_string("(");  break;
+            case NG_0   : send_string(")");  break;
 
             case NG_Q   : send_string("la"); break;
             case NG_W   : send_string("e" ); break;
@@ -232,15 +232,15 @@ void nicola_om_type(void) {
     } else if(nicola_o_key == NG_SHFTR) {
         switch(nicola_m_key) {
             case NG_1   : send_string("!" ); break;
-            case NG_2   :                    break;
-            case NG_3   : send_string("+" ); break;
-            case NG_4   : send_string("]");  break;
-            case NG_5   : send_string("\\"); break;
-            case NG_6   :                    break;
-            case NG_7   :                    break;
-            case NG_8   :                    break;
-            case NG_9   :                    break;
-            case NG_0   :                    break;
+            case NG_2   : send_string("@" ); break;
+            case NG_3   : send_string("#" ); break;
+            case NG_4   : send_string("$");  break;
+            case NG_5   : send_string("%");  break;
+            case NG_6   : send_string("^");  break;
+            case NG_7   : send_string("&");  break;
+            case NG_8   : send_string("*");  break;
+            case NG_9   : send_string("(");  break;
+            case NG_0   : send_string(")");  break;
 
             case NG_Q   :                    break;
             case NG_W   : send_string("ga"); break;

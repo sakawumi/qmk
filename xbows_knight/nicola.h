@@ -112,5 +112,6 @@ typedef enum nicola_keycodes
   CH_LAYER,
   CH_JP,
   CH_EN,
+  CH_VI,
   CH_LAYER_END
 } NGKEYS;
